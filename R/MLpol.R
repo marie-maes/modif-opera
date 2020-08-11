@@ -59,6 +59,7 @@ MLpol <- function(y, experts, awake = NULL, loss.type = "square", loss.gradient 
     B <- newB
   }
   # We check if there is at least one expert with positive weight
+  print(R)
   if (max(R) > 0) {
     w <- eta[T + 1, ] * pmax(R, 0)/sum(eta[T + 1, ] * pmax(R, 0))
   } else {

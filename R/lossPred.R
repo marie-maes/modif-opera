@@ -116,13 +116,13 @@ lossPred <- function(x, y, pred = NULL, loss.type = "square", loss.gradient = FA
         l <- c((y < pred) - loss.type$tau) * x
       
       else if (loss.type$name == "linexNeg"){
-        l <- (1 - exp(y-pred))* x
+        l <- (1 - exp(c(y-pred)))* x
       } else if(loss.type$name == "linexPos"){
-        l <- (exp(pred-y) -1) * x
+        l <- (exp(c(pred-y)) -1) * x
       } else if(loss.type$name == "linexNeg2"){
-        l <- (-exp(y-pred) +2*pred-2*y) * x
+        l <- (-exp(c(y-pred)) +2*pred-2*y) * x
       } else if(loss.type$name == "linexPos2"){
-        l <- (exp(pred-y) +2*pred-2*y) * x
+        l <- (exp(c(pred-y)) +2*pred-2*y) * x
       }      
     }
   }
